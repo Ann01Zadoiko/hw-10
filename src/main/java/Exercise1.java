@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Exercise1 {
-    private static String ABSOLUTE_PATH = "D:\\111\\Java Core 6\\hw-10\\src\\main\\resources\\file.txt";
+    private static String PATH = ".\\src\\main\\resources\\file.txt";
 
     public static void printValidNum(File file) {
         if (!file.exists()) {
@@ -16,7 +16,7 @@ public class Exercise1 {
         }
 
         try {
-            List content = Files.readAllLines(Paths.get(ABSOLUTE_PATH), StandardCharsets.UTF_8);
+            List content = Files.readAllLines(Paths.get(PATH), StandardCharsets.UTF_8);
             Pattern pattern1 = Pattern.compile("^((\\()([0-9]{3})(\\) )([0-9]{3})(-)([0-9]){4})$");
             Pattern pattern2 = Pattern.compile("^(([0-9]{3})(-)([0-9]{3})(-)([0-9]){4})$");
 
@@ -36,4 +36,5 @@ public class Exercise1 {
             e.printStackTrace();
         }
     }
+
 }

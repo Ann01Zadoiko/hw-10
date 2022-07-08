@@ -13,10 +13,10 @@ import java.util.Scanner;
 
 
 class Exercise2 {
-     private static final String ABSOLUTE_PATH = "D:\\111\\Java Core 6\\hw-10\\src\\main\\resources\\file_2.txt";
+     private static final String PATH = ".\\src\\main\\resources\\file_2.txt";
 
      public static void main(String[] args) throws IOException {
-             User[] people = readFile(ABSOLUTE_PATH);
+             User[] people = readFile(PATH);
              Writer writer = new FileWriter("user2.json");
              Gson gson = new GsonBuilder().setPrettyPrinting().create();
              User [] users = new User[people.length-1];
@@ -26,10 +26,10 @@ class Exercise2 {
      }
 
      public static User[] readFile(String filename) throws IOException {
-         List<String> stringList = Files.readAllLines(Paths.get(ABSOLUTE_PATH));
+         List<String> stringList = Files.readAllLines(Paths.get(PATH));
          User [] list = new User[stringList.size()];
          int count = 0;
-         File file = new File(ABSOLUTE_PATH);
+         File file = new File(PATH);
          Scanner scanner = new Scanner(file);
              if (file.canRead()) {
                  while (scanner.hasNext()) {
