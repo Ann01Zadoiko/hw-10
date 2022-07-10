@@ -12,19 +12,19 @@ public class Exercise3 {
     private static final String PATH = ".\\src\\main\\resources\\words.txt";
 
     private static void wordCount() throws IOException {
-        String string1 = Files.readString(Path.of(PATH)).replace("\n", " ");
-
-        List<String> list = Arrays.asList(string1.split(" "));
-
+        File file = new File(PATH);
+        Scanner scanner = new Scanner(file);
+        List<String> list = new ArrayList<>();
         Set<String> uniqueWords = new HashSet<String>(list);
-        for (String word : uniqueWords) {
+        while (scanner.hasNextLine()) {
+            String[] array = scanner.nextLine().split(" ");
+            list.addAll(List.of(array));
+        }
+        Set<String> unique = new HashSet<String>(list);
+        for (String word : unique) {
             System.out.println(word + ": " + Collections.frequency(list, word));
         }
-
-    }
-
-    public static void main(String[] args) throws IOException {
-        wordCount();
+        scanner.close();
     }
 }
 
